@@ -1,0 +1,14 @@
+{
+  "name": "rxsm",
+  "version": "1.0.0",
+  "description": "Remote execution scripts for server maintenance.",
+  "type": "module",
+  "scripts": {
+    "report": "node --experimental-json-modules report.js",
+    "service": "bash ./service.bash"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "puppeteer": "^12.0.1"
+  }
+}
