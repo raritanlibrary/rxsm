@@ -2,7 +2,7 @@ import { execSync } from 'child_process';
 import * as fs from 'fs';
 //import puppeteer from 'puppeteer';
 
-execSync('bash ./report.bash', {stdio: 'inherit'});
+execSync('bash ./report.sh', {stdio: 'inherit'});
 const www = fs.readdirSync('tmp/wwwStat/');
 const dir = new Date().toISOString().replace(/T.+/, '').replace(/-/g, '')
 fs.mkdirSync(`reports/${dir}`)

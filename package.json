@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "report": "node --experimental-json-modules report.js",
-    "service": "bash ./service.bash",
-    "version": "bash ./version.bash"
+    "service": "bash ./service.sh",
+    "version": "bash ./version.sh"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
