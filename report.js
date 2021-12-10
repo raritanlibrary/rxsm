@@ -5,7 +5,7 @@ import * as fs from 'fs';
 execSync('bash ./report.bash', {stdio: 'inherit'});
 const www = fs.readdirSync('tmp/wwwStat/');
 const dir = new Date().toISOString().replace(/T.+/, '').replace(/-/g, '')
-fs.mkdirSync(`out/${dir}`)
+fs.mkdirSync(`reports/${dir}`)
 
 //const browser = await puppeteer.launch();
 //const page = await browser.newPage();
@@ -16,9 +16,9 @@ for (const file of www) {
         data = data.replace(/src="\//g, `src="`);
         fs.writeFileSync(path, data);
         //await page.setContent(data, {waitUntil: 'networkidle0'});
-        //await page.pdf({path: `out/${dir}/${file.slice(8, -5)}.pdf`});
+        //await page.pdf({path: `reports/${dir}/${file.slice(8, -5)}.pdf`});
     }
 };
 
 //await browser.close();
-execSync(`mv tmp/wwwStat/* out/${dir} && rm -rf tmp/*`, {stdio: 'inherit'});
+execSync(`mv tmp/wwwStat/* reports/${dir} && rm -rf tmp/*`, {stdio: 'inherit'});
