@@ -1,9 +1,11 @@
 #!/bin/bash
 
+# import env variables
 if [ -f .env ]; then
     export $(cat .env | xargs)
 fi
 
+# main logic - $1 is service, $2 is action (default is restart)
 if [ $1 == "apache" ]; then
     if [$2 == "stop"]; then
         w="C:/Apache24/bin/httpd.exe -k stop"
@@ -25,6 +27,7 @@ else
     exit 1
 fi
 
+# call the command using ssh
 "C:\Program Files (x86)\WinSCP\WinSCP.com" << EOF
 open ssh://$u:@$h -privatekey=$k
 call $w
