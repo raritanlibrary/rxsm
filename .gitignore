@@ -137,3 +137,6 @@ dist
 # Ignore temp/reports directories
 tmp
 reports
+
+# Ignore report.bat
+report.bat

@@ -1,1 +1,0 @@
-certbot renew --pre-hook "C:/Apache24/bin/httpd.exe -k stop" --post-hook "C:/Apache24/bin/httpd.exe -k runservice
