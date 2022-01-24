@@ -1,23 +1,23 @@
 #!/bin/bash
 
 # import env variables
-if [ -f .env ]; then
+if [[ -f .env ]]; then
     export $(cat .env | xargs)
 fi
 
 # main logic - $1 is service, $2 is action (default is restart)
-if [ $1 == "apache" ]; then
-    if [ $2 == "stop" ]; then
+if [[ $1 == "apache" ]]; then
+    if [[ $2 == "stop" ]]; then
         w="C:/Apache24/bin/httpd.exe -k stop"
-    elif [ $2 == "start" ]; then
+    elif [[ $2 == "start" ]]; then
         w="C:/Apache24/bin/httpd.exe -k start"
     else
         w="C:/Apache24/bin/httpd.exe -k stop && C:/Apache24/bin/httpd.exe -k start"
     fi
-elif [ $1 == "destiny" ]; then
-    if [ $2 == "stop" ]; then
+elif [[ $1 == "destiny" ]]; then
+    if [[ $2 == "stop" ]]; then
         w="net stop Destiny"
-    elif [ $2 == "start" ]; then
+    elif [[ $2 == "start" ]]; then
         w="net start Destiny"
     else
         w="net stop Destiny && sleep 12 && net start Destiny"

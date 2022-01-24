@@ -14,19 +14,19 @@ Once you have the repository downloaded in a suitable location, you'll need to s
 
 ### **Generate a webstat report**
 ```
-./report.sh
+./scripts/report.sh
 ```
 The resulting report will be placed in the `reports` directory under a subdirectory named for the date the report was run (for example, running a report on November 24th, 2019 would write the report to the `reports/20191124` directory).
 
 ### **Restart/start/stop a service**
 ```
-./service.sh <service_name> <action>
+./scripts/service.sh <service_name> <action>
 ```
 `service_name` is a required parameter. `action` is an optional parameter; if not defined, the server will restart.
 
 ### **Check for new versions**
 ```
-./version.sh
+./scripts/version.sh
 ```
 A table containing version information for Apache, FreeSSHD, and Destiny will be printed to the terminal.
 
@@ -47,7 +47,7 @@ First, create a batch file on your local Windows machine:
 @echo off
 setlocal
 FOR /F "tokens=*" %%i in ('type <DOTENV_LOCATION>') do SET %%i
-"<SH.EXE_LOCATION>" -c "cd %root% && ./report.sh"
+"<SH.EXE_LOCATION>" -c "cd %root% && ./scripts/report.sh"
 endlocal
 ```
 Then, run this command in an elevated instance of Command Prompt.

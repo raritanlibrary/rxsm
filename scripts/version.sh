@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # import env variables
-if [ -f .env ]; then
+if [[ -f .env ]]; then
     export $(cat .env | xargs)
 fi
 
