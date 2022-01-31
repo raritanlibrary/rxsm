@@ -4,10 +4,20 @@ if [[ -f .env ]]; then
     export $(cat .env | xargs)
 fi
 
-# Build pages on server and send them via SSH
+# Calculate timestamps
+timestamp=$(date +%y%m)
+
+# Stop Apache server
+bash scripts/service.sh apache stop
+
+# Build pages on server
+# Split log file 
+# Send built files via a tarball file
 "C:\Program Files (x86)\WinSCP\WinSCP.com" << EOF
 open ssh://$u:@$h -privatekey=$k
 call perl C:/wwwStat/cgi-bin/awstats_buildstaticpages.pl -config=model -update -awstatsprog=C:/wwwStat/cgi-bin/awstats.pl -dir=C:/wwwStat
+mv Apache24/logs/access.log Apache24/logs/access.$timestamp.log
+call touch /c/Apache24/logs/access.log
 call cd c && tar -czvf wwwStat.tgz wwwStat/*
 get -delete wwwStat.tgz tmp\wwwStat.tgz
 EOF
@@ -17,8 +27,7 @@ EOF
 "C:\Program Files\7-Zip\7z.exe" x tmp\\wwwStat.tar -otmp
 
 # Make new directory with appropriate timestamp
-reportDir=$(date +%Y%m%d)
-mkdir reports/$reportDir
+mkdir reports/$timestamp
 
 # Cycle through tmp/wwwStat/ and change .html srcs
 for i in tmp/wwwStat/*.html; do
@@ -26,5 +35,11 @@ for i in tmp/wwwStat/*.html; do
 done
 
 # Move wwwStat directory to reports, delete temporary files
-mv tmp/wwwStat/* reports/$reportDir
+mv tmp/wwwStat/* reports/$timestamp
 rm -rf tmp/*
+
+# Don't restart Apache server until midnight
+sleeptime=$(( $(date -f - +%s- <<< "tomorrow 00:00"$'\nnow') 0 ))
+echo "Sleeping for $sleeptime seconds..."
+sleep $sleeptime
+bash scripts/service.sh apache start

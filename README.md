@@ -16,7 +16,7 @@ Once you have the repository downloaded in a suitable location, you'll need to s
 ```
 ./scripts/report.sh
 ```
-The resulting report will be placed in the `reports` directory under a subdirectory named for the date the report was run (for example, running a report on November 24th, 2019 would write the report to the `reports/20191124` directory).
+The resulting report will be placed in the `reports` directory under a subdirectory named for the date the report was run (for example, running a report on November 2019 would write the report to the `reports/1911` directory). Running this command will also archive the Apache access log and create a new access log.
 
 ### **Restart/start/stop a service**
 ```
