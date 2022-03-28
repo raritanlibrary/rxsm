@@ -5,7 +5,7 @@ if [[ -f .env ]]; then
 fi
 
 # Set program variables
-p7zip="/c/Program Files\7-Zip\7z.exe"
+p7zip="/c/Program Files/7-Zip/7z.exe"
 
 # Calculate timestamps
 timestamp=$(date +%y%m)
