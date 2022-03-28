@@ -4,6 +4,9 @@ if [[ -f .env ]]; then
     export $(cat .env | xargs)
 fi
 
+# Set program variables
+p7zip="/c/Program Files\7-Zip\7z.exe"
+
 # Calculate timestamps
 timestamp=$(date +%y%m)
 
@@ -23,8 +26,8 @@ get -delete wwwStat.tgz tmp\wwwStat.tgz
 EOF
 
 # Unpack the pages sent from the server
-"C:\Program Files\7-Zip\7z.exe" e tmp\\wwwStat.tgz -otmp
-"C:\Program Files\7-Zip\7z.exe" x tmp\\wwwStat.tar -otmp
+"$p7zip" e tmp\\wwwStat.tgz -otmp
+"$p7zip" x tmp\\wwwStat.tar -otmp
 
 # Make new directory with appropriate timestamp
 mkdir reports/$timestamp
