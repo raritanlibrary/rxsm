@@ -1,8 +1,23 @@
 # **Remote eXecution Server Maintenance (RXSM)**
-**Remote eXecution Server Maintenance (RXSM)** is a small bundle of scripts used to manage services and run reports on the Raritan Public Library's main server.
+**Remote eXecution Server Maintenance** (RXSM, pronounced \ˈrɑksɪm\\) is a small bundle of scripts used to manage services and run reports on the Raritan Public Library's main server.
 
 ## **Installation**
-Download or clone the latest version of the RXSM script bundle from this repository.
+First, download or clone the latest version of the RXSM script bundle from this repository.
+
+### **WinSCP**
+If you are running Windows, we will need **WinSCP** in order to communicate with the server. [Install it](https://winscp.net/eng/download.php) and test it via the command line (below is the default install location):
+```
+"C:\Program Files (x86)\WinSCP\WinSCP.com"
+```
+If you are using macOS or a Linux distribution, you can modify these scripts to use **`ssh`** rather than WinSCP.
+
+### **7zip**
+Next, we will need to download **7zip** in order to package and send our distribution directory. If you are using Windows, [install it](https://www.7-zip.org/download.html) and test it via the command line:
+```
+7z
+```
+If you are using macOS or a Linux distribution, you can modify these scripts to use the **`zip`** command rather than 7zip.
+
 ### **Environment variables**
 Once you have the repository downloaded in a suitable location, you'll need to set up an `.env` file with the following variables before running any scripts.
 - **`h`** - The hostname for the SSH server to connect to
