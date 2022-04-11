@@ -22,7 +22,7 @@ EOF
 # parse apache versions
 currentA=`grep -oP '(?<=Apache\/)\S+' tmp/APACHE`
 latestARaw=`curl -Ls https://en.wikipedia.org/wiki/Apache_HTTP_Server`
-latestA=`grep -oP '(?<=release<\/a><\/th><td class="infobox-data">)\S+' <<< "$latestARaw"`
+latestA=`grep -oP '(?<=release<\/a><\/th><td class="infobox-data"><div style="margin:0px;">)\d+\.\d+\.\d+' <<< "$latestARaw"`
 
 # parse destiny versions
 currentDRaw=`curl -Ls http://raritanlibrary.org:8080/`
