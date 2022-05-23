@@ -70,7 +70,7 @@ Then, run this command in an elevated instance of Command Prompt.
 schtasks /create /tn rpl_webstat /tr "<BATCH_FILE_PATH>" /sc monthly /mo lastday /m * /st 23:55 /ru "<COMPUTER_NAME>\<USERNAME>"
 ```
 ## **Issues and Contributing**
-Pull requests are encouraged by the Raritan Public Library to ensure our software is of the highest quality possible. If you would like to suggest major changes or restructuring of this repository, please [open an issue](https://github.com/raritanlibrary/rxsm/issues/new). It is also strongly suggested you email us at [raritanlibrary54@aol.com](mailto:raritanlibrary54@aol.com) with any additional questions or concerns.
+Pull requests are encouraged by the Raritan Public Library to ensure our software is of the highest quality possible. If you would like to suggest major changes or restructuring of this repository, please [open an issue](https://github.com/raritanlibrary/rxsm/issues/new). It is also strongly suggested you email us at [info@raritanlibray.org](mailto:info@raritanlibray.org) with any additional questions or concerns.
 
 ## **License**
 
